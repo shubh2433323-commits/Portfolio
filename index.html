@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubh-Developer Portfolio</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;1,600&display=swap"
+    rel="stylesheet">
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* CHANGED: Prevents elements from breaking layout with hidden padding */
+    }
+
+    body {
+        background-color: #0F172A;
+        color: white;
+        font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 50px;
+        /* CHANGED: min-height allows navbar to expand if links wrap on small screens */
+        background-color: #182542;
+        padding: 10px 0;
+        /* CHANGED: Adds clean spacing on mobile devices */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* CHANGED: Allows menu links to wrap nicely on tiny screens */
+    }
+
+    nav ul li {
+        list-style: none;
+        margin: 5px 15px;
+        /* CHANGED: Slightly tighter spacing for safer mobile layout */
+        cursor: pointer;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    nav ul li a:hover {
+        color: #3B82F6;
+        transition: color 0.3s;
+        font-size: 1.03rem;
+    }
+
+    .Left {
+        font-size: 1.3rem;
+        padding-left: 20px;
+    }
+
+    /* MAIN BODY STYLE START */
+    .firstsection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 175px auto;
+        max-width: 80vw;
+    }
+
+    .Leftsection {
+        margin: 0;
+        width: 50%;
+        font-size: 2.3rem;
+    }
+
+    /* Download CV button style */
+    /* .downloadcv{
+        cursor: pointer;
+    color: white;
+        background-color: transparent;
+    } */
+    .cvbutton {
+        display: inline-block;
+        text-decoration: none;
+        background-color: transparent;
+        color: white;
+        border: 2px solid #3B82F6;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+
+    }
+
+    .cvbutton:hover {
+        background-color: #2563EB;
+        color: white;
+        border-color: #2563EB;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    }
+
+    .Rightsection {
+        margin: 0;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Rightsection img {
+        width: 100%;
+        max-width: 450px;
+        /* CHANGED: Prevents your graphic from getting gigantically huge on massive screens */
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    #element {
+        color: #3B82F6;
+    }
+
+    /* ........................................................SECOND SECTION STYLE START .............................................................................> */
+    .secondsection {
+        margin: auto;
+        max-width: 80vw;
+        padding-bottom: 50px;
+        color: #0c0c0c;
+        padding-top: 40px;
+        /* Added clean padding to the top of the section */
+    }
+
+    .slide-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+
+
+
+    .slidecontainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .arrow {
+        background: none;
+
+        border: none;
+        color: #3B82F6;
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .arrow:hover {
+        background-color: #3B82F6;
+        color: white;
+    }
+
+
+
+    .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        height: 300px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px; */
+    }
+
+    .slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .slide {
+        min-width: 100%;
+        flex-direction: column;
+        display: flex;
+        gap: 20px;
+        scroll-snap-align: start;
+        padding: 20px;
+    }
+
+    .slide-content {
+        display: flex;
+        gap: 30px;
+    }
+
+    .slide h1 {
+        background-origin: padding-box;
+        background-clip: padding-box;
+
+        color: #3B82F6;
+        padding: 10px 20px;
+    }
+
+    .slide p {
+        line-height: 1.6;
+        background-origin: padding-box;
+        background-clip: padding-box;
+        padding: 10px 20px;
+    }
+
+    .slide.img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .Education-content {
+        border-left: 3px solid #3B82F6;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .Education-content h3 {
+        color: #3B82F6;
+        margin-bottom: 5px;
+    }
+
+    .hobbies-content {
+
+        gap: 60px;
+        align-content: center;
+    }
+
+    .hobby-card {
+        border: gray solid 1px;
+        border-radius: 5px;
+        box-shadow: gray 0px 0px 5px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hobby-card h3 {
+        color: #3B82F6;
+        font-size: 0.9rem;
+    }
+
+    .slidernav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .slidernav a {
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: #3B82F6;
+        border-radius: 50%;
+        opacity: 0.5;
+        transition: opacity 0.3s;
+        text-decoration: none;
+    }
+
+    .slidernav a:hover {
+        opacity: 1;
+    }
+
+    /* We give color white to whole id full white */
+    /* Here we are making slider for about section */
+
+
+    .fullwhite {
+        background-color: #EFF6FF;
+
+    }
+
+
+    /* < ........................................................ THIRD SECTION STYLE START ....................................................................>*/
+
+    .thirdsection {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #0F172A;
+        padding: 20px 20px;
+    }
+
+    .thirdsection h1 {
+        margin: 40px 0 20px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-color: #0F172A;
+        padding: 20px 20px;
+        flex-direction: column;
+    }
+
+    .thirdsection h1::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: #3B82F6;
+        margin: 8px auto 40px;
+    }
+
+    .skillcard {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid #3B82F6;
+        padding: 30px 25px;
+        border-radius: 12px;
+        width: 150px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .skill h3 {
+        color: #3B82F6;
+    }
+
+    /* ...........................................................project section style start .............................................................................> */
+    .projectsection {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    .projectsection h1 {
+        width: 100%;
+        text-align: center;
+        color: white;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projectsection h1::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: #3B82F6;
+        margin: 8px auto 40px;
+    }
+
+    .projectcard {
+        background-color: #182542;
+        border: 1px solid #3B82F6;
+        border-radius: 12px;
+        width: 280px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .projectcard:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .project-img {
+        background-color: #0F172A;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .coming-soon-img {
+        background-color: #0F172A;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #3B82F6;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .project-info {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .project-info h3 {
+        color: #3B82F6;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .project-info a {
+        font-size: 0.85rem;
+        text-decoration: none;
+        color: #3B82F6;
+
+    }
+
+    /* <................................................................FOURTH SECTION STYLE START .............................................................................> */
+    .fourthsection {
+        display: flex;
+        justify-content: center;
+        min-height: 400px;
+        padding: 40px 20px;
+    }
+
+    .sidel {
+        background-color: #182542;
+        color: #F8FAFC;
+        padding: 50px 40px;
+
+        width: 40%;
+    }
+
+    .sidel h2 {
+        color: #3B82F6;
+        margin-bottom: 10px;
+    }
+
+    .sidel h2::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: #3B82F6;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
+
+    .id-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .label {
+        font-weight: bold;
+        min-width: 80px;
+    }
+
+    .sider {
+        background-color: #182542;
+        color: #F8FAFC;
+        padding: 50px 40px;
+        width: 60%;
+    }
+
+    .sider h2 {
+        color: #3B82F6;
+        margin-bottom: 10px;
+    }
+
+    .sider h2::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: #3B82F6;
+        margin: 8px 0 20px;
+    }
+
+    .sider input,
+    .sider textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid #3B82F6;
+        background: none;
+        color: #F8FAFC;
+        outline: none;
+    }
+
+    .sider textarea {
+        resize: none;
+        height: 80px;
+    }
+
+    .sider button {
+        background-color: #3B82F6;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .sider button:hover {
+        background-color: #2563EB;
+    }
+
+
+    /* ...............................................................<SCROOLING css................................................................>*/
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ....................................................................footer style .............................................................................> */
+    footer {
+        background-color: #182542;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+
+
+    /* ======================================================= */
+    /* NEW: RESPONSIVE MEDIA QUERY FOR PHONES & TABLETS         */
+    /* ======================================================= */
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            /* Stacks brand name above menu links on mobile */
+            gap: 10px;
+            padding: 15px 10px;
+        }
+
+        .Left {
+            padding-left: 0;
+            /* Centers logo name on mobile screen */
+        }
+
+        .firstsection {
+            flex-direction: column-reverse;
+            /* Stacks image nicely ON TOP of your introduction text */
+            text-align: center;
+            /* Centers text beautifully for mobile screens */
+            margin: 30px auto;
+        }
+
+        .Leftsection {
+            width: 100%;
+            /* Section takes up full width on mobile screens */
+            font-size: 1.8rem;
+            /* Reduces font size slightly so text fits mobile screen widths */
+            margin-top: 20px;
+        }
+
+        .Rightsection {
+            width: 100%;
+            /* Image container takes up full width on mobile screens */
+        }
+
+        .Rightsection img {
+            width: 80%;
+            /* Keeps image neat and inside mobile boundaries */
+        }
+
+        /* Mobile adjustment for about section */
+        /* .aboutme {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .slidewrapper {
+            display: flex;
+        } */
+        /* Contact section - stack vertically */
+        .fourthsection {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .sidel,
+        .sider {
+            width: 100%;
+            padding: 30px 20px;
+        }
+
+        /* Project cards - full width */
+        .projectcard {
+            width: 90%;
+        }
+
+        /* Footer - stack vertically */
+        footer {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        /* Hobby cards - wrap */
+        .hobbies-content {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Slide content - stack vertically */
+        .slide-content {
+            flex-direction: column;
+        }
+    }
+
+
+
+    
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="Left">Shubh's Portfolio</div>
+            <div class="Right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstsection" id="home">
+            <div class="Leftsection">
+                Hi, My name is <span style="color: #3B82F6;">Shubh</span><br>
+                and I am a passionate<br>
+                <span id="element"></span><br>
+
+                <a href="cv.pdf" class="cvbutton" download target="_blank">
+                    <!-- to add download cv link in href add cv and class to downloadclass -->
+                    DOWNLOAD MY FULL RESUME
+                </a>
+
+
+
+            </div>
+            <div class="Rightsection">
+                <img src="bg3.png" alt="">
+            </div>
+        </section>
+
+        <div class="fullwhite reveal" id="about">
+            <section class="secondsection">
+
+
+
+                <div class="slidecontainer">
+                    <button class="arrow" onclick="changeSlide(-1)">&#8592;</button>
+                    <div class="slider">
+                        <div class="slide">
+                            <div class="slide-header">
+                                <h1>ABOUT ME</h1>
+                                <div class="lfi">
+                                    <a href="https://www.linkedin.com/in/shubhfrontend" target="_blank"><img width="40"
+                                            height="40" src="https://img.icons8.com/ios/50/linkedin-circled--v1.png"
+                                            alt="linkedin-circled--v1" /></a>
+                                    <a href="https://github.com/shubh2433323-commits" target="_blank"><img width="40"
+                                            height="40" src="https://img.icons8.com/ios/50/github--v1.png"
+                                            alt="github--v1" /></a>
+                                    <a href="https://www.instagram.com/shubhfrontend" target="_blank"><img width="40"
+                                            height="40" src="https://img.icons8.com/ios/50/instagram-new--v1.png"
+                                            alt="instagram-new--v1" /></a>
+                                </div>
+
+                            </div>
+
+                            <div class="slide-content">
+                                <p>Hi, I’m Shubh, a frontend developer who enjoys creating and designing websites. I
+                                    have experience working with HTML and CSS, and I am continuously learning new things
+                                    to
+                                    improve my skills. I enjoy exploring modern web designs, experimenting with layouts,
+                                    and
+                                    building responsive websites. My focus is on improving step by step through
+                                    practice,
+                                    projects, and learning new technologies.</p>
+
+
+                                <p class="p2">Apart from coding, I enjoy experimenting with animations, responsive
+                                    layouts,
+                                    and
+                                    modern design styles to make websites more interactive and visually appealing. I
+                                    believe
+                                    learning by building projects is the best way to grow as a developer. My current
+                                    focus
+                                    is on
+                                    improving my frontend development skills, learning modern technologies, and creating
+                                    projects that help me gain more experience and confidence in web development.</p>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <h1>EDUCATION</h1>
+                            <div class="slide-content">
+                                <div class="Education-content">
+                                    <h3>2022</h3>
+                                    <p>Completed my 10th grade from SJ Education Centre</p>
+                                </div>
+                                <div class="Education-content">
+                                    <h3>2024</h3>
+                                    <p>Completed my 12th grade from GD Goenka School</p>
+                                </div>
+                                <div class="Education-content">
+                                    <h3>Present</h3>
+                                    <p>Currently pursuing BCA from PSIT</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <h1>EXPERIENCE</h1>
+                            <div class="slide-content">
+                                <p class="p6">
+                                    I am currently building frontend projects to improve my practical web development
+                                    skills. Through consistent practice, I have learned responsive design, website
+                                    structure, and modern UI styling using HTML and CSS.
+                                </p>
+                                <p class="p7">
+                                    My focus is on improving through real projects, learning JavaScript deeply, and
+                                    creating clean, responsive user interfaces. I enjoy experimenting with layouts,
+                                    animations, and modern web design techniques.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="slide">
+                            <h1>HOBBIES & INTERESTS</h1>
+                            <div class="slide-content hobbies-content">
+                                <div class="hobby-card">
+                                    <img width="32" height="32" src="https://img.icons8.com/windows/32/controller.png"
+                                        alt="controller" />
+                                    <h3>Gaming</h3>
+                                </div>
+                                <div class="hobby-card">
+                                    <img width="32" height="32" src="https://img.icons8.com/windows/32/musical.png"
+                                        alt="musical" />
+                                    <h3>Music</h3>
+                                </div>
+
+                                <div class="hobby-card">
+                                    <img width="32" height="32"
+                                        src="https://img.icons8.com/windows/32/laptop-coding.png" alt="laptop-coding" />
+                                    <h3>Web Development</h3>
+                                </div>
+                                <div class="hobby-card">
+                                    <img width="32" height="32"
+                                        src="https://img.icons8.com/windows/32/paint-palette.png" alt="paint-palette" />
+                                    <h3>UI Design</h3>
+                                </div>
+                                <div class="hobby-card">
+                                    <img width="32" height="32" src="https://img.icons8.com/windows/32/test.png"
+                                        alt="test" />
+                                    <h3>Problem Solving</h3>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="arrow" onclick="changeSlide(1)">&#8594;</button>
+                </div>
+
+                <div class="slidernav">
+                    <a href="#" onclick="scrollToSlide(0); event.preventDefault();"></a>
+                    <a href="#" onclick="scrollToSlide(1); event.preventDefault();"></a>
+                    <a href="#" onclick="scrollToSlide(2); event.preventDefault();"></a>
+                    <a href="#" onclick="scrollToSlide(3); event.preventDefault();"></a>
+                </div>
+
+            </section>
+        </div>
+        <div class="thirdsection reveal" id="skills">
+            <h1>My Skills</h1>
+            <div class="skillcard">
+                <div class="skill">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/html-5--v1.png" alt="html-5--v1" />
+                    <h3>HTML</h3>
+                </div>
+
+                <div class="skill">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/css3.png" alt="css3" />
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill">
+                    <img width="48" height="48" src="https://img.icons8.com/keek/100/media-queries.png"
+                        alt="media-queries" />
+                    <h3>Responsive Design</h3>
+                </div>
+            </div>
+        </div>
+        <div class="projectsection" id="projects">
+            <h1>My Projects</h1>
+            <div class="projectcard">
+                <div class="project-img">
+                    <img src="bg5.png" alt="This Portfolio" />
+                </div>
+                <div class="project-info">
+                    <h3>This Portfolio</h3>
+                    <p>My First Project-a personal portfolio built
+                        with HTML and CSS
+                    </p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+
+
+            <div class="projectcard">
+                <div class="coming-soon-img">COMING SOON</div>
+                <div class="project-info">
+                    <h3>Coming Soon</h3>
+                    <p>Currently learning and building something new...</p>
+                    <a href="#">View Project</a>
+
+                </div>
+
+            </div>
+            <div class="projectcard">
+                <div class="coming-soon-img">COMING SOON</div>
+                <div class="project-info">
+                    <h3>Coming Soon</h3>
+                    <p>Currently learning and building something new...</p>
+                    <a href="#">View Project</a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="fourthsection reveal" id="contact">
+            <div class="sidel">
+                <h2>QUICK ID</h2>
+                <div class="id-row">
+                    <p class="label">LinkedIn</p>
+                    <p class="value">www.linkedin.com/in/shubhfrontend</p>
+                </div>
+                <div class="id-row">
+                    <p class="label">Email</p>
+                    <p class="value">shubh2433322@email.com</p>
+                </div>
+                <div class="id-row">
+                    <p class="label">Website</p>
+                    <p class="value">www.linkedin.com/in/shubhfrontend</p>
+                </div>
+                <div class="id-row">
+                    <p class="label">Address</p>
+                    <p class="value">Kanpur, Uttar Pradesh, India</p>
+                </div>
+            </div>
+            <div class="sider">
+                <h2>CONTACT ME</h2>
+                <form action="https://formspree.io/f/meedlqbg" method="post">
+                    <p>First Name*</p>
+                    <input type="text" name="first_name" required>
+                    <p>Last Name*</p>
+                    <input type="text" name="last_name" required>
+                    <p>Email*</p>
+                    <input type="email" name="email" required>
+                    <p>Message*</p>
+                    <textarea name="message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+
+            </div>
+        </div>
+        <footer>
+            <p>© 2025 Shubh. All rights reserved.</p>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/shubhfrontend" target="_blank">
+                    <img width="30" height="30" src="https://img.icons8.com/ios/50/linkedin-circled--v1.png"
+                        alt="linkedin" />
+                </a>
+                <a href="https://github.com/shubh2433323-commits" target="_blank">
+                    <img width="30" height="30" src="https://img.icons8.com/ios/50/github--v1.png" alt="github" />
+                </a>
+                <a href="https://www.instagram.com/shubhfrontend" target="_blank">
+                    <img width="30" height="30" src="https://img.icons8.com/ios/50/instagram-new--v1.png"
+                        alt="instagram" />
+                </a>
+            </div>
+        </footer>
+
+
+
+    </main>
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+    <script>
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.slidernav a');
+            dots.forEach(function (dot, index) {
+                if (index === currentSlide) {
+                    dot.style.opacity = '1';
+                } else {
+                    dot.style.opacity = '0.5';
+                }
+            });
+        }
+
+
+
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Web Designer', 'Freelancer'],
+            typeSpeed: 50,
+        });
+
+
+        function scrollToSlide(index) {
+            currentSlide = index;
+            const slider = document.querySelector('.slider');
+            const slideWidth = slider.offsetWidth;
+            slider.scrollTo({
+                left: index * slideWidth,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            scrollToSlide(currentSlide);
+            updateDots();
+        }
+        const reveals = document.querySelectorAll('.reveal');
+
+        // scrolling code
+
+        window.addEventListener('scroll', function () {
+            reveals.forEach(function (element) {
+                const top = element.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
